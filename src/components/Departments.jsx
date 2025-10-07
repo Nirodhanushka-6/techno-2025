@@ -1,79 +1,87 @@
+import { Link } from "react-router-dom";
+
 export default function Departments() {
   const departments = [
     {
       name: "Civil & Environmental Engineering",
       image: "/assets/civil eng department.jpg",
-      description: "Showcasing sustainable infrastructure, water management, and structural projects."
+      description: "Showcasing sustainable infrastructure, water management, and structural projects.",
+      path: "/civil",
     },
     {
       name: "Mechanical & Manufacturing Engineering",
       image: "/assets/mech department.jpg",
-      description: "Explore robotics, machines, and mechanical systems designed by our students."
+      description: "Explore robotics, machines, and mechanical systems designed by our students.",
+      path: "/mechanical",
     },
     {
       name: "Electrical & Information Engineering",
       image: "/assets/elec eng department.jpg",
-      description: "Projects featuring electronics, IoT devices, and smart systems."
+      description: "Projects featuring electronics, IoT devices, and smart systems.",
+      path: "/electrical",
     },
     {
       name: "Marine Engineering",
       image: "/assets/marine eng department.jpg",
-      description: "Software, AI, and computing projects driving the future of technology."
+      description: "Software, AI, and computing projects driving the future of technology.",
+      path: "/marine",
     },
     {
       name: "Interdisciplinary Studies",
-      image: "/assets/IS Department.jpg", // replace with actual image
-      description: "Innovative projects combining multiple engineering disciplines for modern solutions."
+      image: "/assets/IS Department.jpg", 
+      description: "Innovative projects combining multiple engineering disciplines for modern solutions.",
+      path: "/interdisciplinary",
     }
   ];
 
+  
   const degreePrograms = [
-    "B.Sc. in Civil Engineering",
-    "B.Sc. in Mechanical Engineering",
-    "B.Sc. in Electrical & Information Engineering",
-    "B.Sc. in Marine Engineering",
-    "B.Sc. in Computer Engineering",
+    "BSc Eng (Hons) in Civil and Environmental Engineering",
+    "BSc Eng (Hons) in Mechanical and Manufacturing Engineering",
+    "BSc Eng (Hons) in Electrical and Information Engineering",
+    "BSc Eng (Hons) in Computer Engineering",
   ];
 
   return (
-    <section id="departments" className="relative w-full py-10 md:py-20 bg-gradient-to-br from-slate-200 via-zinc-100 to-zinc-200 flex flex-col items-center justify-center overflow-hidden">
-      {/* Departments Section */}
+    <section
+      id="departments"
+      className="relative w-full py-10 md:py-20 bg-gradient-to-br from-slate-200 via-zinc-100 to-zinc-200 flex flex-col items-center justify-center overflow-hidden"
+    >
       <h2 className="text-3xl md:text-4xl font-bold text-red-800 text-center mb-12 drop-shadow-md">
         Our Departments
       </h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-10 px-6 md:px-32 max-w-full mx-auto">
         {departments.map((dept, idx) => (
-          <div
-            key={idx}
-            className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col items-center transition-transform duration-300 hover:-translate-y-1"
-          >
-            {/* Image */}
-            <div className="w-40 h-40 md:w-full md:h-60 p-2">
-              <img
-                src={dept.image}
-                alt={dept.name}
-                className="w-full h-full object-cover rounded-lg"
-              />
+          <Link key={idx} to={dept.path}>
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col items-center transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
+              <div className="w-40 h-40 md:w-full md:h-60 p-2">
+                <img
+                  src={dept.image}
+                  alt={dept.name}
+                  className="w-full h-full object-cover rounded-lg"
+                />
+              </div>
+              <div className="p-4 flex flex-col items-center text-center">
+                <h3 className="text-xl md:text-lg font-semibold text-red-700 mb-2">
+                  {dept.name}
+                </h3>
+                <p className="text-gray-600 text-sm md:text-base">
+                  {dept.description}
+                </p>
+              </div>
             </div>
-
-            {/* Text */}
-            <div className="p-4 flex flex-col items-center text-center">
-              <h3 className="text-xl md:text-lg font-semibold text-red-700 mb-2">{dept.name}</h3>
-              <p className="text-gray-600 text-sm md:text-base">{dept.description}</p>
-            </div>
-          </div>
+          </Link>
         ))}
       </div>
 
-    
       {/* Degree Programs Section */}
       <div className="mt-24 max-w-full mx-auto px-6 md:px-32 text-center">
         <h2 className="text-3xl md:text-4xl font-bold text-red-800 mb-10 drop-shadow-md">
           Our Degree Programs
         </h2>
 
-        <div className=" grid grid-cols-1 md:grid-cols-2 gap-10 items-start text-left md:text-justify">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start text-left md:text-justify">
           {/* Left Text Block */}
           <div>
             <p className="text-gray-700 text-base md:text-lg leading-relaxed">
@@ -82,9 +90,9 @@ export default function Departments() {
               Our programs emphasize <span className="font-semibold text-red-800">practical experience</span>, 
               <span className="font-semibold text-red-800"> innovation</span>, and 
               <span className="font-semibold text-red-800"> interdisciplinary collaboration</span> — 
-            preparing graduates to shape the future of technology and sustainable development.
+              preparing graduates to shape the future of technology and sustainable development.
             </p>
-        </div>
+          </div>
 
           {/* Right Degree List */}
           <ul className="space-y-4">
@@ -111,7 +119,6 @@ export default function Departments() {
           </a>
         </div>
       </div>
-      
     </section>
   );
 }

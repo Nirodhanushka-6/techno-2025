@@ -9,22 +9,19 @@ export default function About() {
             We are Ruhuna Engineering
           </h2>
           <p className="text-gray-700 text-lg md:text-xl leading-relaxed">
-            The <span className="font-semibold">Techno Exhibition 2025</span> is a celebration of 
-            engineering innovation and technical brilliance. Organized by the Faculty of Engineering, 
-            University of Ruhuna, this exhibition showcases cutting-edge projects, research, and creative 
-            problem-solving by our talented students.
+            The <span className="font-semibold">Techno Exhibition 2025</span> is Sri Lanka’s 
+            largest engineering exhibition, celebrating innovation and technical excellence. 
+            Representing the <span className="font-semibold">Faculty of Engineering, University of Ruhuna</span>, 
+            our students proudly showcase cutting-edge projects, research, and creative solutions that reflect 
+            the spirit of engineering innovation.
           </p>
-          <p className="text-gray-600 text-base md:text-lg leading-relaxed">
-            Visitors can experience interactive displays, engage with innovative technologies, and witness 
-            the future of engineering in action. This event bridges the gap between academic excellence and 
-            real-world application, inspiring creativity and collaboration.
+          <p className="text-gray-600 text-lg md:text-xl leading-relaxed">
+            Visitors can explore interactive displays and innovative technologies presented by 
+            the <span className="font-semibold">Faculty of Engineering, University of 
+            Ruhuna</span> at <span className="font-semibold">Techno Exhibition 2025</span>, showcasing how 
+            academic excellence drives real-world innovation.
           </p>
-          <a
-            href="#gallery"
-            className="inline-block bg-red-700 hover:bg-red-800 text-white font-semibold px-8 py-3 rounded-full shadow-[0_0_30px_rgba(239,68,68,0.7)] transition-transform transform hover:scale-102 "
-          >
-            Explore Gallery
-          </a>
+
         </div>
 
         {/* Image Content */}

@@ -24,7 +24,7 @@ export default function About() {
             On December 04th,05th and 06th 2025
           </p>
           <p className="text-gray-600 text-base md:text-lg leading-relaxed">
-            Explore more vist Our Official Rextro - Silver jubilee Website.
+            Explore more from Our Official Rextro - Silver jubilee Website.
           </p>
           <a
             href="https://silver-jubilee.eng.ruh.ac.lk/"

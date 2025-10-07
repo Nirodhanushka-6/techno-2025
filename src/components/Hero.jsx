@@ -51,7 +51,7 @@ export default function Hero() {
           Techno Exhibition 2025
         </h1>
         <p className="text-2xl md:text-3xl font-medium mb-3">
-          Faculty of Engineering - University of Ruhuna
+          Faculty of Engineering | University of Ruhuna
         </p>
         <p className="text-lg md:text-xl text-gray-200 mb-8">
           Discover innovation, creativity, and engineering excellence.

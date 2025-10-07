@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
 import Lenis from "@studio-freight/lenis";
 
 import Navbar from "./components/Navbar";
@@ -13,12 +14,18 @@ import Footer from "./components/Footer";
 import Loader from "./components/Loader";
 import Cursor from "./components/Cursor";
 
+// Department pages
+import Civil from "./pages/Civil.jsx";
+import Mechanical from "./pages/Mechanical.jsx";
+import Electrical from "./pages/Electrical.jsx";
+import Marine from "./pages/Marine.jsx";
+import Interdisciplinary from "./pages/Interdisciplinary.jsx";
+
 function App() {
   useEffect(() => {
-    // 👇 Initialize Lenis for smooth scrolling
     const lenis = new Lenis({
-      duration: 1.8, // Adjust for slower or faster scroll (2.0 = slower)
-      easing: (t) => 1 - Math.pow(1 - t, 3), // Smooth easing curve
+      duration: 1.8,
+      easing: (t) => 1 - Math.pow(1 - t, 3),
       smoothWheel: true,
       smoothTouch: true,
     });
@@ -29,33 +36,39 @@ function App() {
     }
 
     requestAnimationFrame(raf);
-
-    return () => {
-      lenis.destroy(); // Cleanup on unmount
-    };
+    return () => lenis.destroy();
   }, []);
 
   return (
     <div className="px-0 min-h-screen flex flex-col">
-      {/* 🧠 Custom Cursor */}
       <Cursor />
-
-      {/* ⏳ Loader */}
       <Loader />
-
-      {/* 📌 Fixed Navbar */}
       <Navbar />
 
-      {/* 🧩 Main Content Wrapper */}
       <div className="pt-20 px-2 md:px-0">
-        <Hero />
-        <About />
-        <Rextro />
-        <Departments />
-        <Exhibits />
-        <Gallery />
-        <Contact />
-        <Footer />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <Hero />
+                <About />
+                <Departments />
+                <Exhibits />
+                <Gallery />
+                <Rextro />
+                <Contact />
+                <Footer />
+              </>
+            }
+          />
+
+          <Route path="/civil" element={<Civil />} />
+          <Route path="/mechanical" element={<Mechanical />} />
+          <Route path="/electrical" element={<Electrical />} />
+          <Route path="/marine" element={<Marine />} />
+          <Route path="/interdisciplinary" element={<Interdisciplinary />} />
+        </Routes>
       </div>
     </div>
   );
