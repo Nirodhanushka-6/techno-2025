@@ -31,7 +31,7 @@ export default function Civil() {
       </div>
 
       {/* Sub Images */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-5xl mb-10">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full max-w-5xl mb-10">
         <img
           src="/assets/civil1.jpg"
           alt="Photo 1"
@@ -50,10 +50,9 @@ export default function Civil() {
       </div>
 
       {/* Extra Description */}
-      <p className="max-w-2xl text-gray-600 text-base mb-8">
-        Our students actively engage in real-world engineering challenges—ranging from
-        water management to earthquake-resistant construction—preparing them to make a
-        meaningful impact on society.
+      <p className="max-w-2xl text-gray-600 text-lg mb-8">
+        Graduates have career opportunities in civil construction, structural engineering, geotechnics, water resources, 
+        environmental consultancy, infrastructure management, and academia.
       </p>
 
       {/* Button */}

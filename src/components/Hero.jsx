@@ -50,16 +50,6 @@ export default function Hero() {
         {/* 🔹 Logos Row */}
         <div className="flex justify-center items-center gap-6 mb-6">
           <img
-            src="assets/logos/techno_logo.jpg"
-            alt="Techno Logo"
-            className="h-16 w-auto object-contain drop-shadow-lg"
-          />
-          <img
-            src="assets/logos/iesl_logo.jpg"
-            alt="IESL Logo"
-            className="h-16 w-auto object-contain drop-shadow-lg"
-          />        
-          <img
             src="assets/logos/logo.png"
             alt="Ruhuna Logo"
             className="h-16 w-auto object-contain drop-shadow-lg"
@@ -69,6 +59,16 @@ export default function Hero() {
             alt="Efac Logo"
             className="h-16 w-auto object-contain drop-shadow-lg"
           />
+          <img
+            src="assets/logos/techno_logo.jpg"
+            alt="Techno Logo"
+            className="h-16 w-auto object-contain drop-shadow-lg"
+          />
+          <img
+            src="assets/logos/iesl_logo.jpg"
+            alt="IESL Logo"
+            className="h-16 w-auto object-contain drop-shadow-lg"
+          />        
         </div>
 
         {/* Title */}

@@ -21,7 +21,7 @@ export default function About() {
             REXTRO - the Pride of Ruhuna Engineering is making its garnd return this year!
             Get ready to witness a celebration of innovation,creative and engineering brilliance like like never before 
             Join us at the Faculty of Engineering, University of Ruhuna for an unforgettable experience.
-            On December 04th,05th and 06th 2025
+            On December 05th,06th and 07th 2025
           </p>
           <p className="text-gray-600 text-base md:text-lg leading-relaxed">
             Explore more from Our Official Rextro - Silver jubilee Website.

@@ -55,7 +55,7 @@ export default function Departments() {
         {departments.map((dept, idx) => (
           <Link key={idx} to={dept.path}>
             <div className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col items-center transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
-              <div className="w-40 h-40 md:w-full md:h-60 p-2">
+              <div className="w-full h-40 md:w-full md:h-60 p-2">
                 <img
                   src={dept.image}
                   alt={dept.name}

@@ -1,3 +1,5 @@
+import { useEffect, useRef, useState } from "react";
+
 export default function Exhibits() {
   const departments = [
     {
@@ -6,37 +8,29 @@ export default function Exhibits() {
         {
           title: "AI Smart Glove",
           image: "/assets/smart glove.jpg",
+          flyer: "/assets/Posters/Poster_Elec_4.2.png",
           description:
             "AI Integrated Hand Function Recovery System with Mobile Gaming & Smart Glove for Stroke Rehabilitation.",
         },
         {
           title: "Intelligent Browser",
           image: "/assets/Browser.jpg",
+          flyer: "/assets/Posters/Poster_Elec_1.2.png",
           description: "Intelligent Browser Automation System.",
         },
         {
           title: "Case Study",
           image: "/assets/case study.jpg",
+          flyer: "/assets/Posters/Poster_Elec_2.2.png",
           description:
             "Detection of Nutrient Levels for Plantations via Machine Learning.",
         },
         {
           title: "Enhancing AV Safety and Efficiency",
           image: "/assets/AV.png",
+          flyer: "/assets/Posters/Poster_Elec_3.2.png",
           description:
             "Development of a Scaled Testbed for Evaluating Multiple ANN Architectures.",
-        },
-        {
-          title: "AdSmart",
-          image: "/assets/Ads.jpg",
-          description:
-            "Next-Gen Advertisement Platform: Precision Targeting for Relevant Audiences.",
-        },
-        {
-          title: "Communication",
-          image: "/assets/Coomunication.jpg",
-          description:
-            "Joint communication and sensing at ELF using AI enabled radio receivers.",
         },
       ],
     },
@@ -46,17 +40,20 @@ export default function Exhibits() {
         {
           title: "Hybrid VTOL UAV",
           image: "/assets/UAV.jpg",
+          flyer: "/assets/Posters/Poster_Mechanical_2.2.png",
           description: "Modelling and optimal control of a Hybrid VTOL UAV.",
         },
         {
           title: "Control Model",
           image: "/assets/EM suspension.jpg",
+          flyer: "/assets/Posters/Poster_Mechanical_1.2.png",
           description:
             "Development of robust controller for 1-DOF magnetic suspension system.",
         },
         {
           title: "Samudra Gen",
           image: "/assets/samudra gen.jpg",
+          flyer: "/assets/Posters/Poster_Mechanical_3.2.png",
           description:
             "Small-scale wave energy converter using Sri Lankan wave conditions.",
         },
@@ -68,17 +65,20 @@ export default function Exhibits() {
         {
           title: "Smart Capsule",
           image: "/assets/capsul.jpg",
+          flyer: "/assets/Posters/Poster_Civil_1.2.png",
           description: "Module Smart Capsule.",
         },
         {
           title: "Railway Tracks",
           image: "/assets/railway.jpg",
+          flyer: "/assets/Posters/Poster_Civil_3.2.png",
           description:
             "Effect of particle shape on breakage characteristics of railway ballast aggregates.",
         },
         {
           title: "Autoklub",
           image: "/assets/autoklub.jpg",
+          flyer: "/assets/Posters/Poster_Civil_2.2.png",
           description: "A detailed 3D model of the Autoklub Headquarters.",
         },
       ],
@@ -89,32 +89,23 @@ export default function Exhibits() {
         {
           title: "Coral Garden Monitoring",
           image: "/assets/coral.webp",
+          flyer: "/assets/Posters/Poster_Marine_2.2.png",
           description:
             "Development of Underwater ROV for Coral Garden Monitoring.",
         },
         {
-          title: "Project 2",
-          image: "/assets/project.jpg",
-          description: "Marine project 2 showcase.",
-        },
-        {
           title: "RC Wing-In-Ground",
           image: "/assets/Wing.jpeg",
+          flyer: "/assets/Posters/Poster_Marine_1.2.png",
           description:
             "Design of a small-scale remote-controlled Wing-In-Ground Craft.",
-        },
-        {
-          title: "Project 4",
-          image: "/assets/project.jpg",
-          description: "Marine Engineering Project 4.",
         },
       ],
     },
   ];
 
-  // Opens flyer image in a new tab
-  const openFlyer = (image) => {
-    window.open(image, "_blank");
+  const openFlyer = (flyer) => {
+    window.open(flyer, "_blank", "noopener,noreferrer");
   };
 
   return (
@@ -138,42 +129,72 @@ export default function Exhibits() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
               {dept.exhibits.map((exhibit, idx) => (
-                <div
+                <LazyExhibitCard
                   key={idx}
-                  onClick={() => openFlyer(exhibit.image)}
-                  className="relative bg-white rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-1 cursor-pointer group"
-                >
-                  {/* Image */}
-                  <div className="relative h-48 w-full overflow-hidden rounded-t-xl">
-                    <img
-                      src={exhibit.image}
-                      alt={exhibit.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-
-                    {/* Overlay (hidden by default, fades in on hover) */}
-                    <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center bg-black/0 group-hover:bg-black/60 transition-all duration-300">
-                      <span className="text-white text-lg font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        View Flyer
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Content */}
-                  <div className="p-6 flex flex-col items-center text-center">
-                    <h4 className="text-lg md:text-xl font-semibold text-red-700 mb-2">
-                      {exhibit.title}
-                    </h4>
-                    <p className="text-gray-600 text-sm md:text-base leading-relaxed">
-                      {exhibit.description}
-                    </p>
-                  </div>
-                </div>
+                  exhibit={exhibit}
+                  openFlyer={openFlyer}
+                />
               ))}
             </div>
           </div>
         ))}
       </div>
     </section>
+  );
+}
+
+/* Lazy-loaded Exhibit Card */
+function LazyExhibitCard({ exhibit, openFlyer }) {
+  const [visible, setVisible] = useState(false);
+  const ref = useRef();
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={ref}
+      onClick={() => openFlyer(exhibit.flyer)}
+      className="relative bg-white rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-1 cursor-pointer group"
+    >
+      {visible ? (
+        <>
+          <div className="relative h-48 w-full overflow-hidden rounded-t-xl">
+            <img
+              src={exhibit.image}
+              alt={exhibit.title}
+              loading="lazy"
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+            <div className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/60 transition-all duration-300">
+              <span className="text-white text-lg font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                View Flyer
+              </span>
+            </div>
+          </div>
+          <div className="p-6 flex flex-col items-center text-center">
+            <h4 className="text-lg md:text-xl font-semibold text-red-700 mb-2">
+              {exhibit.title}
+            </h4>
+            <p className="text-gray-600 text-sm md:text-base leading-relaxed">
+              {exhibit.description}
+            </p>
+          </div>
+        </>
+      ) : (
+        <div className="h-64 bg-gray-200 animate-pulse rounded-xl" />
+      )}
+    </div>
   );
 }
