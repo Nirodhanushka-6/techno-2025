@@ -1,7 +1,7 @@
 export default function Exhibits() {
   const departments = [
     {
-      name: "Electrical& Electronic Engineering",
+      name: "Electrical & Electronic Engineering",
       exhibits: [
         {
           title: "AI Smart Glove",
@@ -112,8 +112,16 @@ export default function Exhibits() {
     },
   ];
 
+  // Opens flyer image in a new tab
+  const openFlyer = (image) => {
+    window.open(image, "_blank");
+  };
+
   return (
-    <section id="exhibits" className="relative w-full py-10 md:py-20 bg-gradient-to-br from-slate-200 via-zinc-100 to-zinc-200 flex flex-col items-center justify-center overflow-hidden">
+    <section
+      id="exhibits"
+      className="relative w-full py-10 md:py-20 bg-gradient-to-br from-slate-200 via-zinc-100 to-zinc-200 flex flex-col items-center justify-center overflow-hidden"
+    >
       <div className="max-w-7xl mx-auto px-[6px] md:px-8">
         <h2 className="text-4xl md:text-4xl font-bold text-red-800 text-center mb-4 drop-shadow-md">
           Explore Our Exhibits
@@ -132,18 +140,26 @@ export default function Exhibits() {
               {dept.exhibits.map((exhibit, idx) => (
                 <div
                   key={idx}
-                  className="bg-white rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-1"
+                  onClick={() => openFlyer(exhibit.image)}
+                  className="relative bg-white rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-1 cursor-pointer group"
                 >
-                  {/* Image (Top Half) */}
-                  <div className="h-48 w-full">
+                  {/* Image */}
+                  <div className="relative h-48 w-full overflow-hidden rounded-t-xl">
                     <img
                       src={exhibit.image}
                       alt={exhibit.title}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
+
+                    {/* Overlay (hidden by default, fades in on hover) */}
+                    <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center bg-black/0 group-hover:bg-black/60 transition-all duration-300">
+                      <span className="text-white text-lg font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        View Flyer
+                      </span>
+                    </div>
                   </div>
 
-                  {/* Content (Bottom Half) */}
+                  {/* Content */}
                   <div className="p-6 flex flex-col items-center text-center">
                     <h4 className="text-lg md:text-xl font-semibold text-red-700 mb-2">
                       {exhibit.title}
