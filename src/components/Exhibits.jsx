@@ -6,28 +6,28 @@ export default function Exhibits() {
       name: "Electrical & Electronic Engineering",
       exhibits: [
         {
-          title: "AI Smart Glove",
-          image: "/assets/smart glove.jpg",
+          title: "Smart Glove for Stroke Rehab",
+          image: "/assets/Exibits/Smart Glove.webp",
           flyer: "/assets/Posters/Poster_Elec_4.2.png",
           description:
             "AI Integrated Hand Function Recovery System with Mobile Gaming & Smart Glove for Stroke Rehabilitation.",
         },
         {
           title: "Intelligent Browser",
-          image: "/assets/Browser.jpg",
+          image: "/assets/Exibits/Browser.webp",
           flyer: "/assets/Posters/Poster_Elec_1.2.png",
           description: "Intelligent Browser Automation System.",
         },
         {
           title: "Case Study",
-          image: "/assets/case study.jpg",
+          image: "/assets/Exibits/case study.webp",
           flyer: "/assets/Posters/Poster_Elec_2.2.png",
           description:
             "Detection of Nutrient Levels for Plantations via Machine Learning.",
         },
         {
           title: "Enhancing AV Safety and Efficiency",
-          image: "/assets/AV.png",
+          image: "/assets/Exibits/AV.webp",
           flyer: "/assets/Posters/Poster_Elec_3.2.png",
           description:
             "Development of a Scaled Testbed for Evaluating Multiple ANN Architectures.",
@@ -38,21 +38,21 @@ export default function Exhibits() {
       name: "Mechanical Engineering",
       exhibits: [
         {
-          title: "Hybrid VTOL UAV",
-          image: "/assets/UAV.jpg",
+          title: "VTOL Hybrid Aircraft",
+          image: "/assets/Exibits/UAV.webp",
           flyer: "/assets/Posters/Poster_Mechanical_2.2.png",
           description: "Modelling and optimal control of a Hybrid VTOL UAV.",
         },
         {
-          title: "Control Model",
-          image: "/assets/EM suspension.jpg",
+          title: "Robust Control of EM Suspension",
+          image: "/assets/Exibits/EM suspension.webp",
           flyer: "/assets/Posters/Poster_Mechanical_1.2.png",
           description:
             "Development of robust controller for 1-DOF magnetic suspension system.",
         },
         {
-          title: "Samudra Gen",
-          image: "/assets/samudra gen.jpg",
+          title: "CeylonSURGE",
+          image: "/assets/Exibits/samudra gen.webp",
           flyer: "/assets/Posters/Poster_Mechanical_3.2.png",
           description:
             "Small-scale wave energy converter using Sri Lankan wave conditions.",
@@ -64,20 +64,20 @@ export default function Exhibits() {
       exhibits: [
         {
           title: "Smart Capsule",
-          image: "/assets/capsul.jpg",
+          image: "/assets/Exibits/capsul.webp",
           flyer: "/assets/Posters/Poster_Civil_1.2.png",
           description: "Module Smart Capsule.",
         },
         {
           title: "Railway Tracks",
-          image: "/assets/railway.jpg",
+          image: "/assets/Exibits/railway.webp",
           flyer: "/assets/Posters/Poster_Civil_3.2.png",
           description:
             "Effect of particle shape on breakage characteristics of railway ballast aggregates.",
         },
         {
           title: "Autoklub",
-          image: "/assets/autoklub.jpg",
+          image: "/assets/Exibits/autoklub.webp",
           flyer: "/assets/Posters/Poster_Civil_2.2.png",
           description: "A detailed 3D model of the Autoklub Headquarters.",
         },
@@ -88,14 +88,14 @@ export default function Exhibits() {
       exhibits: [
         {
           title: "Coral Garden Monitoring",
-          image: "/assets/coral.webp",
+          image: "/assets/Exibits/coral.webp",
           flyer: "/assets/Posters/Poster_Marine_2.2.png",
           description:
             "Development of Underwater ROV for Coral Garden Monitoring.",
         },
         {
           title: "RC Wing-In-Ground",
-          image: "/assets/Wing.jpeg",
+          image: "/assets/Exibits/Wing.webp",
           flyer: "/assets/Posters/Poster_Marine_1.2.png",
           description:
             "Design of a small-scale remote-controlled Wing-In-Ground Craft.",
@@ -127,9 +127,9 @@ export default function Exhibits() {
               {dept.name}
             </h3>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 will-change-transform">
               {dept.exhibits.map((exhibit, idx) => (
-                <LazyExhibitCard
+                <OptimizedExhibitCard
                   key={idx}
                   exhibit={exhibit}
                   openFlyer={openFlyer}
@@ -143,47 +143,51 @@ export default function Exhibits() {
   );
 }
 
-/* Lazy-loaded Exhibit Card */
-function LazyExhibitCard({ exhibit, openFlyer }) {
-  const [visible, setVisible] = useState(false);
+/* OPTIMIZED EXHIBIT CARD COMPONENT */
+function OptimizedExhibitCard({ exhibit, openFlyer }) {
+  const [loaded, setLoaded] = useState(false);
   const ref = useRef();
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          setVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.2 }
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
+    let observer;
+    if (ref.current) {
+      observer = new IntersectionObserver(
+        (entries) => {
+          if (entries[0].isIntersecting) {
+            setLoaded(true);
+            observer.disconnect();
+          }
+        },
+        { threshold: 0.15 }
+      );
+      observer.observe(ref.current);
+    }
+    return () => observer && observer.disconnect();
   }, []);
 
   return (
     <div
       ref={ref}
       onClick={() => openFlyer(exhibit.flyer)}
-      className="relative bg-white rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-1 cursor-pointer group"
+      className="relative bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-transform duration-300 hover:-translate-y-1 cursor-pointer group will-change-transform"
     >
-      {visible ? (
+      {loaded ? (
         <>
           <div className="relative h-48 w-full overflow-hidden rounded-t-xl">
             <img
               src={exhibit.image}
               alt={exhibit.title}
               loading="lazy"
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              decoding="async"
+              className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105"
             />
-            <div className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/60 transition-all duration-300">
-              <span className="text-white text-lg font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <div className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/50 transition-all duration-300">
+              <span className="text-white text-lg font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
                 View Flyer
               </span>
             </div>
           </div>
-          <div className="p-6 flex flex-col items-center text-center">
+          <div className="p-5 flex flex-col items-center text-center">
             <h4 className="text-lg md:text-xl font-semibold text-red-700 mb-2">
               {exhibit.title}
             </h4>
