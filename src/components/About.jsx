@@ -8,14 +8,14 @@ export default function About() {
           <h2 className="text-4xl md:text-4xl font-bold text-red-800 drop-shadow-md">
             We are Ruhuna Engineering
           </h2>
-          <p className="text-gray-700 text-lg md:text-xl leading-relaxed">
+          <p className="text-gray-700 text-lg md:text-xl leading-relaxed text-justify">
             The <span className="font-semibold">Techno Exhibition 2025</span> is Sri Lanka’s 
             largest engineering exhibition, celebrating innovation and technical excellence. 
             Representing the <span className="font-semibold">Faculty of Engineering, University of Ruhuna</span>, 
             our students proudly showcase cutting-edge projects, research, and creative solutions that reflect 
             the spirit of engineering innovation.
           </p>
-          <p className="text-gray-600 text-lg md:text-xl leading-relaxed">
+          <p className="text-gray-600 text-lg md:text-xl leading-relaxed text-justify">
             Visitors can explore interactive displays and innovative technologies presented by 
             the <span className="font-semibold">Faculty of Engineering, University of 
             Ruhuna</span> at <span className="font-semibold">Techno Exhibition 2025</span>, showcasing how 

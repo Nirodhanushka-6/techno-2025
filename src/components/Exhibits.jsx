@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 export default function Exhibits() {
   const departments = [
     {
-      name: "Electrical & Electronic Engineering",
+      name: "Electrical & Information Engineering",
       exhibits: [
         {
           title: "Smart Glove for Stroke Rehab",
@@ -13,20 +13,20 @@ export default function Exhibits() {
             "AI Integrated Hand Function Recovery System with Mobile Gaming & Smart Glove for Stroke Rehabilitation.",
         },
         {
-          title: "Intelligent Browser",
+          title: "Browz AI:Smart Web Navigator",
           image: "/assets/Exibits/Browser.webp",
           flyer: "/assets/Posters/Poster_Elec_1.2.png",
           description: "Intelligent Browser Automation System.",
         },
         {
-          title: "Case Study",
-          image: "/assets/Exibits/case study.webp",
+          title: "Elf Based Drone Detector",
+          image: "/assets/Exibits/Drone.webp",
           flyer: "/assets/Posters/Poster_Elec_2.2.png",
           description:
-            "Detection of Nutrient Levels for Plantations via Machine Learning.",
+           "To develop an optimized modular steel shelter system suitable for post- disaster use in Sri Lanka",
         },
         {
-          title: "Enhancing AV Safety and Efficiency",
+          title: "AI- Driven Vehicle Safety Testbed",
           image: "/assets/Exibits/AV.webp",
           flyer: "/assets/Posters/Poster_Elec_3.2.png",
           description:
@@ -35,16 +35,16 @@ export default function Exhibits() {
       ],
     },
     {
-      name: "Mechanical Engineering",
+      name: "Mechanical & Manufacturing Engineering",
       exhibits: [
         {
-          title: "VTOL Hybrid Aircraft",
+          title: "Hybrid VTOL aircraft",
           image: "/assets/Exibits/UAV.webp",
           flyer: "/assets/Posters/Poster_Mechanical_2.2.png",
           description: "Modelling and optimal control of a Hybrid VTOL UAV.",
         },
         {
-          title: "Robust Control of EM Suspension",
+          title: "Zero-Power Magnetic Suspension System",
           image: "/assets/Exibits/EM suspension.webp",
           flyer: "/assets/Posters/Poster_Mechanical_1.2.png",
           description:
@@ -60,41 +60,41 @@ export default function Exhibits() {
       ],
     },
     {
-      name: "Civil Engineering",
+      name: "Civil & Environmental Engineering",
       exhibits: [
         {
-          title: "Smart Capsule",
+          title: "Smart Modular Tourist Capsule",
           image: "/assets/Exibits/capsul.webp",
           flyer: "/assets/Posters/Poster_Civil_1.2.png",
           description: "Module Smart Capsule.",
         },
         {
-          title: "Railway Tracks",
+          title: "Ballest Breakage Behavior Study",
           image: "/assets/Exibits/railway.webp",
           flyer: "/assets/Posters/Poster_Civil_3.2.png",
           description:
             "Effect of particle shape on breakage characteristics of railway ballast aggregates.",
         },
         {
-          title: "Autoklub",
-          image: "/assets/Exibits/autoklub.webp",
+          title: "Rapid Deploy Disaster Shelter",
+          image: "/assets/Exibits/shelter.webp",
           flyer: "/assets/Posters/Poster_Civil_2.2.png",
-          description: "A detailed 3D model of the Autoklub Headquarters.",
+          description: "To develop an optimized modular steel shelter system suitable for post- disaster use in Sri Lanka",
         },
       ],
     },
     {
-      name: "Marine Engineering",
+      name: "Marine Engineering and Naval Architecture",
       exhibits: [
         {
-          title: "Coral Garden Monitoring",
+          title: "Coral Monitoring Vehicle",
           image: "/assets/Exibits/coral.webp",
           flyer: "/assets/Posters/Poster_Marine_2.2.png",
           description:
             "Development of Underwater ROV for Coral Garden Monitoring.",
         },
         {
-          title: "RC Wing-In-Ground",
+          title: "Wing-In-Ground Craft",
           image: "/assets/Exibits/Wing.webp",
           flyer: "/assets/Posters/Poster_Marine_1.2.png",
           description:

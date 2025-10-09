@@ -21,7 +21,7 @@ export default function Departments() {
       path: "/electrical",
     },
     {
-      name: "Marine Engineering",
+      name: "Marine Engineering and Naval Architecture",
       image: "/assets/marine eng department.jpg",
       description: "Exploring ocean technologies, ship design, and marine systems for sustainable maritime progress.",
       path: "/marine",
@@ -40,6 +40,7 @@ export default function Departments() {
     "BSc Eng (Hons) in Mechanical and Manufacturing Engineering",
     "BSc Eng (Hons) in Electrical and Information Engineering",
     "BSc Eng (Hons) in Computer Engineering",
+    "BSc Eng (Hons) in Marine engineering and Naval Architecture "
   ];
 
   return (

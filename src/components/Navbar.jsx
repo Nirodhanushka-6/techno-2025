@@ -22,7 +22,7 @@ export default function Navbar() {
           <li><a href="#about" className="hover:text-red-700 transition">About Us</a></li>
           <li><a href="#departments" className="hover:text-red-700 transition">Departments</a></li>
           <li><a href="#exhibits" className="hover:text-red-700 transition">Exhibits</a></li>
-          <li><a href="#gallery" className="hover:text-red-700 transition">Gallery</a></li>
+          {/* <li><a href="#gallery" className="hover:text-red-700 transition">Gallery</a></li> */}
           <li><a href="#contact" className="hover:text-red-700 transition">Contact</a></li>
         </ul>
         {/* Hamburger Menu */}
@@ -40,7 +40,7 @@ export default function Navbar() {
           <li><a href="#about" className="hover:text-red-800 transition" onClick={() => setOpen(false)}>About Us</a></li>
           <li><a href="#departments" className="hover:text-red-800 transition" onClick={() => setOpen(false)}>Departments</a></li>
           <li><a href="#exhibits" className="hover:text-red-800 transition" onClick={() => setOpen(false)}>Exhibits</a></li>
-          <li><a href="#gallery" className="hover:text-red-800 transition" onClick={() => setOpen(false)}>Gallery</a></li>
+          {/* <li><a href="#gallery" className="hover:text-red-800 transition" onClick={() => setOpen(false)}>Gallery</a></li> */}
           <li><a href="#contact" className="hover:text-red-800 transition" onClick={() => setOpen(false)}>Contact</a></li>
         </ul>
       )}

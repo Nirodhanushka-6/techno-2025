@@ -53,9 +53,9 @@ export default function Interdisciplinary() {
 
       {/* Extra Description */}
       <p className="max-w-5xl text-justify text-gray-600 text-lg mb-8">
-        The department staff and I believe you all are very fortunate to have these kinds of multidisciplinary courses and sophisticated 
-        facilities in your learning environment and expect to get the maximum benefit from that. We wish you all the courage to become a 
-        competent engineer for the country.
+        Department of Interdisciplinary Studies is a non-degree offering department which has mainly designed its curriculum to bridge
+        the gap between the student’s technical skills and personal development.The Department of Interdisciplinary Studies offers course
+        modules in the following areas which are considered common to all disciplines.
       </p>
 
       {/* Button */}

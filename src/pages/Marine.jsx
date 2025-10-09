@@ -56,7 +56,7 @@ export default function Marine() {
 
       {/* Button */}
       <a
-        href="https://www.eng.ruh.ac.lk/dmme/"
+        href="https://www.eng.ruh.ac.lk/dmena/"
         target="_blank"
         rel="noopener noreferrer"
         className="inline-block bg-red-700 hover:bg-red-800 text-white font-semibold px-8 py-3 rounded-full shadow-lg transition-transform transform hover:scale-105"

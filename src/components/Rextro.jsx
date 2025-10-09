@@ -15,16 +15,17 @@ export default function About() {
         {/* Text Content */}
         <div className="md:w-1/2 space-y-6 md:pr-12">
           <h2 className="text-4xl md:text-4xl font-bold text-red-800 drop-shadow-md">
-            Join with us at Rextro
+            Join with us at ReXtro
           </h2>
-          <p className="text-gray-700 text-lg md:text-xl leading-relaxed">
-            REXTRO - the Pride of Ruhuna Engineering is making its garnd return this year!
-            Get ready to witness a celebration of innovation,creative and engineering brilliance like like never before 
-            Join us at the Faculty of Engineering, University of Ruhuna for an unforgettable experience.
-            On December 05th,06th and 07th 2025
+          <p className="text-gray-700 text-lg md:text-xl leading-relaxed text-justify">
+            REXTRO — the grand celebration of innovation and excellence — marks the Silver Jubilee of the Faculty of Engineering, 
+            University of Ruhuna. This prestigious event brings together students, alumni, industry partners, and the public to showcase 
+            two and a half decades of engineering brilliance, creativity, and technological advancement.Through exhibitions, project 
+            demonstrations, and interactive experiences, REXTRO highlights the ingenuity of Ruhuna engineers who continue to shape the 
+            future of technology and sustainable development in Sri Lanka.
           </p>
           <p className="text-gray-600 text-base md:text-lg leading-relaxed">
-            Explore more from Our Official Rextro - Silver jubilee Website.
+           Join us as we celebrate 25 years of engineering excellence and look forward to the next generation of innovators.
           </p>
           <a
             href="https://silver-jubilee.eng.ruh.ac.lk/"
