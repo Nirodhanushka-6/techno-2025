@@ -10,6 +10,9 @@ export default function Hero() {
     "assets/images/hero6.jpg",
     "assets/images/hero7.jpg",
     "assets/images/hero8.jpg",
+    "assets/images/hero9.jpg",
+    "assets/images/hero10.jpg",
+
   ];
 
   const [currentImage, setCurrentImage] = useState(0);
