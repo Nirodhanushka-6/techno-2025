@@ -5,12 +5,13 @@ import "swiper/css/pagination";
 
 export default function Gallery() {
   const images = [
-    "/assets/Exibits (1).jpeg",
-    "/assets/Exibits (2).jpeg",
-    "/assets/Exibits (10).jpeg",
-    "/assets/Exibits (5).jpeg",
-    "/assets/Exibits (7).jpeg",
-    "/assets/Exibits (9).jpeg",
+    "/assets/Gallery/Picture1.jpg",
+    "/assets/Gallery/Picture2.jpg",
+    "/assets/Gallery/Picture3.jpg",
+    "/assets/Gallery/Picture4.jpg",   
+    "/assets/Gallery/Picture5.jpg",
+    "/assets/Gallery/Picture6.jpg",
+    "/assets/Gallery/Picture7.jpg",
   ];
 
   return (

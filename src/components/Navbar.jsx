@@ -7,7 +7,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="w-full fixed top-0 left-0 z-10 backdrop-blur-md shadow-md">
+    <nav className="w-full fixed top-0 left-0 z-20 backdrop-blur-md shadow-md">
       <div className="max-w-full mx-auto flex items-center justify-between px-4 md:px-15 py-2">
         {/* Logo and Title */}
         <div className="flex items-center gap-3">

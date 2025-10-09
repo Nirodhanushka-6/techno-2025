@@ -56,7 +56,7 @@ function App() {
                 <About />
                 <Departments />
                 <Exhibits />
-                <Gallery />
+                {/* <Gallery /> */}
                 <Rextro />
                 <Contact />
                 <Footer />

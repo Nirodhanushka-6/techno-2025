@@ -1,10 +1,10 @@
 export default function About() {
   return (
     <section id="about" className="relative w-full py-10 md:py-20 bg-gradient-to-br from-slate-200 via-zinc-100 to-zinc-200 flex flex-col items-center justify-center overflow-hidden">
-      <div className="max-w-7xl mx-auto px-12 md:px-6 flex flex-col md:flex-row items-center gap-12">
+      <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
         
         {/* Image Content */}
-        <div className="md:w-1/2 relative group overflow-hidden rounded-xl shadow-xl h-80 md:h-108">
+        <div className="w-full md:w-1/2 relative group overflow-hidden rounded-xl shadow-xl h-80 md:h-108">
           <img
             src="/assets/Rextro.jpg"
             alt="Exhibition"

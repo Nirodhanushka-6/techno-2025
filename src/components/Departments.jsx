@@ -5,31 +5,31 @@ export default function Departments() {
     {
       name: "Civil & Environmental Engineering",
       image: "/assets/civil eng department.jpg",
-      description: "Showcasing sustainable infrastructure, water management, and structural projects.",
+      description: "Designing sustainable infrastructure and resilient environments through innovation and technology.",
       path: "/civil",
     },
     {
       name: "Mechanical & Manufacturing Engineering",
       image: "/assets/mech department.jpg",
-      description: "Explore robotics, machines, and mechanical systems designed by our students.",
+      description: "Advancing mechanical design, automation, and manufacturing solutions for modern industries.",
       path: "/mechanical",
     },
     {
       name: "Electrical & Information Engineering",
       image: "/assets/elec eng department.jpg",
-      description: "Projects featuring electronics, IoT devices, and smart systems.",
+      description: "Developing intelligent systems, IoT innovations, and cutting-edge electronic technologies.",
       path: "/electrical",
     },
     {
       name: "Marine Engineering",
       image: "/assets/marine eng department.jpg",
-      description: "Software, AI, and computing projects driving the future of technology.",
+      description: "Exploring ocean technologies, ship design, and marine systems for sustainable maritime progress.",
       path: "/marine",
     },
     {
       name: "Interdisciplinary Studies",
       image: "/assets/IS Department.jpg", 
-      description: "Innovative projects combining multiple engineering disciplines for modern solutions.",
+      description: "Bridging multiple engineering fields to create integrated, real-world technological solutions.",
       path: "/interdisciplinary",
     }
   ];

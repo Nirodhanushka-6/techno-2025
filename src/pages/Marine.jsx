@@ -9,7 +9,7 @@ export default function Marine() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-gray-100 to-slate-200 flex flex-col items-center justify-center text-center px-6 py-20">
       {/* Heading */}
-      <h1 className="text-4xl md:text-5xl font-bold  text-red-800 mb-6">
+      <h1 className="text-3xl md:text-5xl font-bold  text-red-800 mb-6">
         Department of Marine Engineering and Naval Architecture
       </h1>
 
@@ -22,7 +22,7 @@ export default function Marine() {
       {/* Main Image */}
       <div className="w-full max-w-5xl mb-8">
         <img
-          src="/assets/elec_main.jpg"
+          src="/assets/department/mena.jpg"
           alt="Marine Engineering Department"
           className="w-full h-[400px] object-cover rounded-2xl shadow-lg"
         />
@@ -31,17 +31,17 @@ export default function Marine() {
       {/* Sub Images */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full max-w-5xl mb-10">
         <img
-          src="/assets/elec1.jpg"
+          src="/assets/department/mena1.jpg"
           alt="Photo 1"
           className="w-full h-56 object-cover rounded-xl shadow-md hover:scale-105 transition-transform"
         />
         <img
-          src="/assets/elec2.jpg"
+          src="/assets/department/mena2.jpg"
           alt="Photo 2"
           className="w-full h-56 object-cover rounded-xl shadow-md hover:scale-105 transition-transform"
         />
         <img
-          src="/assets/elec3.jpg"
+          src="/assets/department/mena3.jpg"
           alt="Photo 3"
           className="w-full h-56 object-cover rounded-xl shadow-md hover:scale-105 transition-transform"
         />
