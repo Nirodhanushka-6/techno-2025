@@ -28,6 +28,7 @@ function App() {
       easing: (t) => 1 - Math.pow(1 - t, 3),
       smoothWheel: true,
       smoothTouch: true,
+      lerp: 0.1,
     });
 
     function raf(time) {
