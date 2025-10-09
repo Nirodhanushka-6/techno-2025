@@ -2,6 +2,17 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { fadeIn } from "../utils/animations";
 
+/**
+ * Demo-only Contact component (NO BACKEND)
+ *
+ * - Always returns a successful submission.
+ * - Simulates network delay.
+ * - Clears the form and shows a success message.
+ * - Saves mock submissions to localStorage (dev-only).
+ *
+ * Replace with a real endpoint or a Formspree/Web3Forms integration when ready.
+ */
+
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
@@ -12,8 +23,25 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState("");
 
-  const handleChange = (e) => {
+  const handleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
+
+  const mockSubmit = async (data) => {
+    // simulate network latency
+    await new Promise((r) => setTimeout(r, 700));
+
+    // store a local mock copy (optional; dev convenience)
+    try {
+      const existing = JSON.parse(localStorage.getItem("mock_submissions") || "[]");
+      existing.unshift({ ...data, timestamp: new Date().toISOString() });
+      // keep only latest 500 entries to avoid overfilling storage
+      localStorage.setItem("mock_submissions", JSON.stringify(existing.slice(0, 500)));
+    } catch (e) {
+      // ignore storage errors in restricted environments
+    }
+
+    // always succeed in demo mode
+    return { ok: true };
   };
 
   const handleSubmit = async (e) => {
@@ -21,26 +49,31 @@ export default function Contact() {
     setIsSubmitting(true);
     setStatus("");
 
+    const payload = {
+      name: formData.name.trim(),
+      email: formData.email.trim(),
+      feedback: formData.feedback.trim(),
+    };
+
+    // Basic validation
+    if (!payload.name || !payload.email || !payload.feedback) {
+      setStatus("⚠️ Please fill out all fields before submitting.");
+      setIsSubmitting(false);
+      return;
+    }
+
     try {
-      const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbx_EiEvv8Mj7J6jpECv37KDvsI9wv1YydQuIYrLW5YvRYLZ-mMlxWAYhJgGliQEixZ1/exec",
-        {
-          method: "POST",
-          body: JSON.stringify(formData),
-          headers: { "Content-Type": "application/json" },
-        }
-      );
+      const result = await mockSubmit(payload);
 
-      const result = await response.json();
-
-      if (result.result === "success") {
-        setStatus("✅ Thank you for your feedback!");
+      if (result.ok) {
+        setStatus("✅ Successfully submitted — thank you!");
         setFormData({ name: "", email: "", feedback: "" });
       } else {
-        setStatus("⚠️ Something went wrong. Please try again.");
+        setStatus("⚠️ Submission failed in demo mode.");
       }
-    } catch (error) {
-      setStatus("❌ Network error. Please check your connection.");
+    } catch (err) {
+      console.error("Demo submit error:", err);
+      setStatus("❌ Unexpected error. Try again.");
     } finally {
       setIsSubmitting(false);
     }
@@ -94,6 +127,7 @@ export default function Contact() {
           className="bg-white/70 placeholder-gray-500 text-gray-900 border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-red-700"
           required
         />
+
         <input
           name="email"
           type="email"
@@ -103,6 +137,7 @@ export default function Contact() {
           className="bg-white/70 placeholder-gray-500 text-gray-900 border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-red-700"
           required
         />
+
         <textarea
           name="feedback"
           placeholder="Your Feedback"
@@ -115,7 +150,7 @@ export default function Contact() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="bg-gradient-to-r from-red-700 via-red-800 to-red-900 text-white font-semibold px-6 py-3 rounded-xl shadow-md hover:shadow-lg hover:scale-[1.02] transition-all duration-300"
+          className="bg-gradient-to-r from-red-700 via-red-800 to-red-900 text-white font-semibold px-6 py-3 rounded-xl shadow-md hover:shadow-lg hover:scale-[1.02] transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
         >
           {isSubmitting ? "Sending..." : "Submit Feedback"}
         </button>
