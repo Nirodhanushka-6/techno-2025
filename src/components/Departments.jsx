@@ -40,7 +40,7 @@ export default function Departments() {
     "BSc Eng (Hons) in Mechanical and Manufacturing Engineering",
     "BSc Eng (Hons) in Electrical and Information Engineering",
     "BSc Eng (Hons) in Computer Engineering",
-    "BSc Eng (Hons) in Marine engineering and Naval Architecture "
+    "BSc Eng (Hons) in Marine Engineering and Naval Architecture "
   ];
 
   return (

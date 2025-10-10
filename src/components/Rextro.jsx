@@ -25,7 +25,8 @@ export default function About() {
             future of technology and sustainable development in Sri Lanka.
           </p>
           <p className="text-gray-600 text-base md:text-lg leading-relaxed">
-           Join us as we celebrate 25 years of engineering excellence and look forward to the next generation of innovators.
+           Join with us on 05th,06th and 07th of December 2025 as we celebrate 25 years of 
+           engineering excellence and look forward to the next generation of innovators.
           </p>
           <a
             href="https://silver-jubilee.eng.ruh.ac.lk/"

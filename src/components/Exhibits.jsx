@@ -45,7 +45,7 @@ export default function Exhibits() {
         },
         {
           title: "Zero-Power Magnetic Suspension System",
-          image: "/assets/Exibits/EM suspension.webp",
+          image: "/assets/Exibits/EMController.webp",
           flyer: "/assets/Posters/Poster_Mechanical_1.2.png",
           description:
             "Development of robust controller for 1-DOF magnetic suspension system.",
